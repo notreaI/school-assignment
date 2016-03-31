@@ -21,14 +21,24 @@ public class FileManager extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent event){
 		if(event.getSource() == button){
-			System.out.println(textField.getText());
 			if(textField.getText().length()==0){
 				for (int i = 0; i<fn.length;i++){
 					ans = ans + fn[i]+"\n";
 					System.out.println(ans);
 				}
-			
 			JOptionPane.showMessageDialog(null,ans);
+			}
+			else{
+				cd = new File(textField.getText);
+				if (cd.isDirectory()){
+					for (int i = 0; i<fn.length;i++){
+					ans = ans + fn[i]+"\n";
+					System.out.println(ans);
+					}
+				}
+				else{
+					cd = new File(".");
+				}
 			}
 		}
 	}
