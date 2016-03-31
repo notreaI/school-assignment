@@ -29,17 +29,24 @@ public class FileManager extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(null,ans);
 			}
 			else{
-				cd = new File(textField.getText);
+				cd = new File(textField.getText());
+				fn = cd.list();
 				if (cd.isDirectory()){
 					for (int i = 0; i<fn.length;i++){
 					ans = ans + fn[i]+"\n";
 					System.out.println(ans);
 					}
+					JOptionPane.showMessageDialog(null,ans);
+				}
+				else if(cd.exists()){
+					JOptionPane.showMessageDialog(null,"file exists");
 				}
 				else{
-					cd = new File(".");
+					JOptionPane.showMessageDialog(null,"path or file not found");
 				}
+				
 			}
+			ans = "";
 		}
 	}
 	
